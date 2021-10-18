@@ -1,7 +1,9 @@
-import react, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
-import { CardContainer, HomeContainer, PokeButton } from "./styled"
+import { CardContainer, HomeContainer, PokeButton, HeaderHome } from "./styled"
 import axios from "axios"
+
+
 
 const Home = () =>  {
     const history = useHistory()
@@ -47,11 +49,14 @@ const Home = () =>  {
 
     return (
       <>
+      <HeaderHome>
+        <img src="https://www.pinclipart.com/picdir/big/497-4978857_drawn-pokeball-clear-background-transparent-background-pokeball-png.png"/>
+        <h1> Lista de Pokemons </h1>
       <div>
         <button onClick={pageList}>Ir lista de Pokemon</button>
         <button onClick={pageDetalhes}>Ir para Detalhes</button>      
       </div>
-      
+      </HeaderHome>
       <HomeContainer>        
           {pokemonList}           
       </HomeContainer>
