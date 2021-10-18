@@ -1,5 +1,5 @@
 import react from "react"
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 
 const Lista = () =>  {
