@@ -1,5 +1,6 @@
 import react from "react"
 import { useHistory } from "react-router-dom"
+import {HeaderHome} from "./styled"
 
 
 const Lista = () =>  {
@@ -8,10 +9,11 @@ const Lista = () =>  {
     history.push("/")
   }
     return (
-      <div>
-        <button onClick={pageHome}>Voltar</button>
+      <HeaderHome>
         <h1>Pagina lista</h1>
-      </div>
+        <button onClick={pageHome}>Voltar</button>
+      
+      </HeaderHome>
     );
   }
   
