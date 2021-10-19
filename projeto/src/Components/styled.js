@@ -72,4 +72,31 @@ button {
 }
 }
 
+
 `
+export const StyledDetails = styled.div`
+display: flex;
+justify-content: space-between;
+border: 2px solid #CCC;
+height: 100vh;
+align-items: center;
+
+img{
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    display: block;
+    margin: 10px;
+}
+
+h2 {
+    height: 500px;
+    border: 2px solid #CCC;
+    width: 200px;
+    text-align: center;
+    margin: 10px;
+}
+`;
+
+`
+
