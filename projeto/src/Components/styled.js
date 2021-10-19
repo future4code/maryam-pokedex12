@@ -72,6 +72,7 @@ button {
 }
 }
 
+
 `
 export const StyledDetails = styled.div`
 display: flex;
@@ -96,3 +97,6 @@ h2 {
     margin: 10px;
 }
 `;
+
+`
+
