@@ -1,13 +1,11 @@
-import './App.css';
-import React from 'react';
-import Router from './Router/Router';
+import React from "react";
+import Router from "./routes/Router";
+import GlobalState from "./global/GlobalState";
 
-function App() {
+export default function App() {
   return (
-    <div>
+    <GlobalState>
       <Router />
-    </div>
+    </GlobalState>
   );
 }
-
-export default App;
