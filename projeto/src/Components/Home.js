@@ -8,6 +8,7 @@ import axios from "axios"
 const Home = () =>  {
     const history = useHistory()
     const [pokemons, setPokemons] = useState ([])
+    const [pokemonImage, setPokemonImage] = useState([])
    
 
     const pageList = () => {
@@ -19,10 +20,12 @@ const Home = () =>  {
 
     const getPokemons = () => {
     axios
-    .get ("https://pokeapi.co/api/v2/pokemon/")
+    .get ("https://pokeapi.co/api/v2/pokemon/?limit=30&offset=30/")
     .then ((res) => { 
         
         setPokemons(res.data.results)
+        
+        console.log(res.data.results)
     })
     .catch ((err) => {
       console.log (err)
@@ -33,17 +36,41 @@ const Home = () =>  {
     getPokemons ()
   }, [])
 
-
-
-  const pokemonList = pokemons.map((pokemon) => {
+  function getPokemonImage() {
+    pokemon &&
+     pokemons.map((item) => {
     return (
-    <CardContainer>
-      <p>{pokemon.name}</p>
+      axios
+    .get (`https://pokeapi.co/api/v2/pokemon/${item.name}/`)
+    .then ((res) => { 
+        setPokemonImage(res.data.sprites.front_default)
+        console.log("imagens", res.data.sprites.front_default)
+    })
+    .catch ((err) => {
+      console.log (err)
+    })
+    )
+  })}
+    
+  
+
+  useEffect (() => {
+    getPokemonImage ()
+  }, [pokemons])
+
+ 
+
+
+  const pokemonList = pokemonImage.map((pokemon) => {
+    return (
+    <div>
+      <img src = {pokemon} />
+      {/* <p>{pokemon.name}</p> */}
       <PokeButton>
         <button> Adicionar </button>
         <button> Detalhes </button>
       </PokeButton>
-    </CardContainer>
+    </div>
     )
   })
 
